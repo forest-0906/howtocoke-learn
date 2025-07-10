@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>程序员做饭指南 - 随机推荐</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <header>
+        <h1>程序员做饭指南 - 随机推荐</h1>
+        <p>根据分类随机生成菜谱，让做饭更简单</p>
+    </header>
+    
+    <div class="controls">
+        <div class="dropdown-container">
+            <label for="category-btn">选择分类：</label>
+            <button id="category-btn" class="category-btn">全部菜谱</button>
+            <div id="category-dropdown" class="dropdown-content">
+                </div>
+        </div>
+        
+        <button id="random-btn">随机推荐</button>
+        <button id="show-all-btn">显示全部</button>
+    </div>
+    
+    <div id="recipes-container">
+        <div class="loading">正在加载菜谱，请稍候...</div>
+    </div>
+    
+    <footer>
+        <p>数据来源：<a href="https://github.com/Anduin2017/HowToCook" target="_blank">GitHub - 程序员做饭指南</a></p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,399 @@
+/* 您的所有原始样式都已保留 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scrollbar-color: #888 #f1f1f1;
+    scrollbar-width: thin;
+}
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* 1. 顶部大标题美化 */
+header h1 {
+    color: #333; /* 将颜色改为深色，增强标题感 */
+    font-size: 2.5em; /* 增大字体大小，更具冲击力 */
+    margin-bottom: 10px; /* 保持与副标题的间距 */
+    font-weight: bold; /* 确保字体加粗 */
+    letter-spacing: 1px; /* 增加一点字母间距，让标题更舒展 */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* 添加轻微阴影，增加立体感 */
+}
+
+/* 副标题 (p 标签) */
+header p {
+    color: #666;
+    font-size: 1.1em;
+    margin-top: 5px;
+}
+
+/* 2. 控制区域布局调整 */
+.controls {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    display: flex; /* 使用 Flexbox 布局 */
+    flex-wrap: wrap; /* 允许在空间不足时换行 */
+    gap: 15px; /* 元素之间的间距 */
+    align-items: center; /* 垂直居中对齐 */
+    justify-content: center; /* 水平居中对齐所有元素 */
+}
+
+/* 确保下拉容器内的 label 和 button 在同一行 */
+.dropdown-container {
+    position: relative;
+    display: flex; /* 让 label 和 button 在 flex 容器内 */
+    align-items: center; /* 垂直居中对齐 */
+    gap: 10px; /* label 和 button 之间的间距 */
+    min-width: unset; /* 移除最小宽度限制，让其根据内容自动调整 */
+}
+
+.dropdown-container label {
+    font-weight: bold;
+    /* 移除 margin-right，由 gap 代替 */
+    white-space: nowrap; /* 防止标签换行 */
+}
+
+.category-btn, #random-btn, #show-all-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    white-space: nowrap; /* 防止按钮文本换行 */
+}
+.category-btn:hover, #random-btn:hover, #show-all-btn:hover {
+    background-color: #45a049;
+}
+.category-btn {
+    /* padding, border, etc. 保持不变 */
+    width: auto; /* 让按钮宽度自适应内容，而不是100%或固定最大宽度 */
+    min-width: 120px; /* 确保按钮有最小宽度，避免过小 */
+    max-width: 200px; /* 避免在宽屏幕上过长 */
+    flex-shrink: 0; /* 防止按钮被压缩 */
+    text-align: center; /* 按钮文字居中 */
+    /* 移除原来的 text-align: left; */
+    position: relative; /* 用于伪元素 */
+}
+.category-btn:after {
+    content: '▼';
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.8em;
+}
+
+/* 调整下拉内容的宽度，使其与按钮对齐 */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    /* 使用CSS变量确保宽度匹配按钮，但先不强制设定，让它自适应 */
+    /* width: var(--category-btn-width, 100%); */
+    width: 100%; /* 默认100%，如果需要精确匹配按钮宽度，可能需要JS */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 10;
+    border: 1px solid #ddd;
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 5px 0; /* 调整整体内边距，给上下留一点空间 */
+}
+
+/* 类别标题 (例如 "菜品总览", "星级难度", "小贴士") */
+.dropdown-content .category-header {
+    font-weight: bold;
+    color: #333; /* 标题颜色改为更深色，增加对比度 */
+    background-color: #e9e9e9; /* 标题背景色更柔和 */
+    padding: 10px 16px; /* 调整内边距 */
+    border-bottom: 1px solid #ddd; /* 增加底部边框 */
+    border-top: 1px solid #ddd; /* 增加顶部边框 */
+    margin-top: 5px; /* 标题上方增加一些间距 */
+    margin-bottom: 5px; /* 标题下方增加一些间距 */
+    text-transform: uppercase; /* 标题文字大写，增加分类感 */
+    font-size: 0.9em; /* 字体稍微小一点，更精致 */
+    letter-spacing: 0.5px; /* 增加字母间距 */
+    pointer-events: none; /* 确保标题不可点击 */
+    cursor: default;
+}
+
+/* 移除第一个 category-header 的顶部边框和多余的 margin-top */
+.dropdown-content .category-header:first-of-type {
+    margin-top: 0;
+    border-top: none;
+}
+
+/* 所有子项 (菜谱分类和文档项) 的基础样式 */
+.dropdown-content a.category-item,
+.dropdown-content a.subcategory-item {
+    padding: 8px 16px; /* 调整垂直内边距，让列表项看起来更舒适 */
+    padding-left: 25px; /* 基础缩进 */
+    font-size: 0.9em; /* 字体稍微小一点 */
+    color: #555; /* 默认文字颜色 */
+    transition: background-color 0.2s ease, color 0.2s ease;
+    text-decoration: none; /* 确保所有 a 标签默认没有下划线 */
+    display: block; /* 确保a标签占据整行，方便点击 */
+}
+
+/* 鼠标悬停时的样式 */
+.dropdown-content a.category-item:hover,
+.dropdown-content a.subcategory-item:hover {
+    background-color: #e6f7ff; /* 浅蓝色背景，更柔和 */
+    color: #007bff; /* 文字颜色变为蓝色 */
+}
+
+/* 文档项的专属样式 */
+.dropdown-content a.document-item {
+    font-style: normal; /* 取消斜体 */
+    color: #6a6a6a; /* 保持较浅的颜色，但更自然 */
+    padding-left: 35px; /* 增加文档项的缩进，与菜谱分类区分 */
+    position: relative; /* 用于添加小图标 */
+}
+
+/* 可选：为文档项添加一个小图标，增加视觉区分度 */
+.dropdown-content a.document-item::before {
+    content: '📄'; /* 文件图标 */
+    font-size: 0.8em;
+    position: absolute;
+    left: 15px; /* 定位图标 */
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.7;
+}
+
+/* 如果你想让文档项的hover效果更明显，可以： */
+.dropdown-content a.document-item:hover {
+    background-color: #f0f8ff; /* 浅浅的蓝，与菜谱分类的 hover 区分 */
+    color: #4CAF50; /* 变成绿色，呼应主题色 */
+}
+
+
+#recipes-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    min-height: 200px;
+}
+.loading, .error {
+    text-align: center;
+    padding: 50px;
+    font-size: 1.2em;
+    color: #666;
+}
+.error {
+    color: #d9534f; /* Bootstrap's danger color */
+}
+
+.recipe {
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+}
+.recipe:last-child {
+    border-bottom: none;
+}
+.recipe-title {
+    color: #333;
+    cursor: pointer;
+    margin-top: 0;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.recipe-title .toggle-icon {
+    transition: transform 0.3s ease;
+    font-size: 0.8em;
+}
+.recipe-title .toggle-icon.expanded {
+    transform: rotate(180deg);
+}
+.recipe-tags {
+    margin-bottom: 10px;
+}
+.tag {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-right: 8px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    font-weight: bold;
+    color: white;
+}
+.category-tag {
+    background-color: #007bff; /* Bootstrap primary blue */
+}
+.difficulty-tag {
+    background-color: #28a745; /* Bootstrap success green */
+}
+.recipe-details {
+    display: none;
+    padding-top: 10px;
+    line-height: 1.8;
+}
+.recipe-details.visible {
+    display: block;
+}
+.recipe-details h2, .recipe-details h3, .recipe-details h4 {
+    color: #4CAF50;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+.recipe-details ul, .recipe-details ol {
+    margin-left: 20px;
+    padding-left: 0;
+}
+.recipe-details li {
+    margin-bottom: 5px;
+}
+.recipe-details img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 15px auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+.recipe-details a {
+    color: #007bff;
+    text-decoration: none;
+}
+.recipe-details a:hover {
+    text-decoration: underline;
+}
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    color: #666;
+}
+footer a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* 随机推荐的菜谱样式 */
+.random-recipe {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 新增：文档内容样式 */
+.document-content {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    margin-top: 20px;
+}
+
+.document-content h2 {
+    color: #4CAF50;
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.document-content h3 {
+    color: #666;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.document-content ul, .document-content ol {
+    padding-left: 25px;
+}
+
+.document-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.document-content th, .document-content td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.document-content th {
+    background-color: #f2f2f2;
+}
+
+/* 如果文档中有代码块 */
+.document-content pre {
+    background-color: #eee;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+.document-content code {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #e8e8e8;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+
+/* 响应式设计调整 (确保小屏幕下布局仍然合理) */
+@media (max-width: 768px) {
+    /* 顶部标题调整 */
+    header h1 {
+        font-size: 2em; /* 小屏幕下字体稍微缩小 */
+    }
+
+    .controls {
+        flex-direction: column; /* 在小屏幕下，控件垂直堆叠 */
+        align-items: stretch; /* 让控件占据整个宽度 */
+    }
+    .dropdown-container {
+        flex-direction: column; /* 小屏幕下，标签和按钮垂直堆叠 */
+        align-items: stretch;
+        width: 100%;
+        gap: 5px; /* 缩小间距 */
+    }
+    .dropdown-container label {
+        text-align: center; /* 标签居中 */
+        margin-bottom: 5px;
+    }
+    .category-btn, #random-btn, #show-all-btn {
+        width: 100%; /* 按钮占据整个宽度 */
+        max-width: none;
+    }
+    .dropdown-content {
+        position: static; /* 在小屏幕上让下拉内容变为静态流，方便滚动 */
+        width: 100%; /* 占据整个宽度 */
+        box-shadow: none;
+        border: none;
+    }
+    /* ... 其他下拉内容的响应式样式保持不变 ... */
+}

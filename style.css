@@ -1,93 +1,102 @@
-/* 您的所有原始样式都已保留 */
+/* General Body and Main Layout */
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    background-color: #f4f4f4;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #fff8ed; /* 更温暖、略深的背景色，像烘焙过的饼干 */
     color: #333;
     line-height: 1.6;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
-    scrollbar-color: #888 #f1f1f1;
+    scrollbar-color: #d2691e #f1f1f1; /* 滚动条颜色与主题色协调 */
     scrollbar-width: thin;
+    padding: 20px; /* Overall padding */
 }
+
+/* Header Styling */
 header {
     text-align: center;
     margin-bottom: 30px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border: 1px solid #eee;
 }
 
-/* 1. 顶部大标题美化 */
 header h1 {
-    color: #333; /* 将颜色改为深色，增强标题感 */
-    font-size: 2.5em; /* 增大字体大小，更具冲击力 */
-    margin-bottom: 10px; /* 保持与副标题的间距 */
-    font-weight: bold; /* 确保字体加粗 */
-    letter-spacing: 1px; /* 增加一点字母间距，让标题更舒展 */
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* 添加轻微阴影，增加立体感 */
+    color: #4a4a4a;
+    font-size: 2.8em;
+    margin-bottom: 10px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
 }
 
-/* 副标题 (p 标签) */
 header p {
     color: #666;
-    font-size: 1.1em;
+    font-size: 1.15em;
     margin-top: 5px;
 }
 
-/* 2. 控制区域布局调整 */
+/* Control Area Layout - 美化后 */
 .controls {
-    background-color: #fff;
+    background-color: rgba(255, 248, 237, 0.8); /* 柔和的浅色背景，略带透明 */
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    margin-bottom: 20px;
-    display: flex; /* 使用 Flexbox 布局 */
-    flex-wrap: wrap; /* 允许在空间不足时换行 */
-    gap: 15px; /* 元素之间的间距 */
-    align-items: center; /* 垂直居中对齐 */
-    justify-content: center; /* 水平居中对齐所有元素 */
+    border-radius: 15px; /* 更大的圆角 */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.05); /* 更柔和的阴影 */
+    margin-bottom: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(238, 238, 238, 0.7); /* 更淡的边框 */
 }
 
-/* 确保下拉容器内的 label 和 button 在同一行 */
+/* Dropdown Container */
 .dropdown-container {
     position: relative;
-    display: flex; /* 让 label 和 button 在 flex 容器内 */
-    align-items: center; /* 垂直居中对齐 */
-    gap: 10px; /* label 和 button 之间的间距 */
-    min-width: unset; /* 移除最小宽度限制，让其根据内容自动调整 */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: unset;
 }
 
 .dropdown-container label {
     font-weight: bold;
-    /* 移除 margin-right，由 gap 代替 */
-    white-space: nowrap; /* 防止标签换行 */
+    color: #555;
+    white-space: nowrap;
 }
 
-.category-btn, #random-btn, #show-all-btn {
-    padding: 10px 20px;
+/* Buttons (Adjusted Size and Style) - 美化后 */
+.category-btn, #show-all-btn {
+    padding: 15px 30px; /* 保持内边距 */
     border: none;
-    border-radius: 5px;
-    background-color: #4CAF50;
+    border-radius: 12px; /* 更大的圆角 */
+    background-color: #d2691e; /* 保持主题色 */
     color: white;
-    font-size: 1em;
+    font-size: 1.15em;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    white-space: nowrap; /* 防止按钮文本换行 */
+    transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.2s ease; /* 添加 box-shadow 过渡 */
+    white-space: nowrap;
+    font-weight: bold;
+    min-width: 150px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* 更精致的阴影 */
 }
-.category-btn:hover, #random-btn:hover, #show-all-btn:hover {
-    background-color: #45a049;
+.category-btn:hover, #show-all-btn:hover {
+    background-color: #b85c1a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* 悬停时阴影效果 */
 }
+.category-btn:active, #show-all-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* 按下时阴影效果 */
+}
+
 .category-btn {
-    /* padding, border, etc. 保持不变 */
-    width: auto; /* 让按钮宽度自适应内容，而不是100%或固定最大宽度 */
-    min-width: 120px; /* 确保按钮有最小宽度，避免过小 */
-    max-width: 200px; /* 避免在宽屏幕上过长 */
-    flex-shrink: 0; /* 防止按钮被压缩 */
-    text-align: center; /* 按钮文字居中 */
-    /* 移除原来的 text-align: left; */
-    position: relative; /* 用于伪元素 */
+    max-width: 250px;
+    flex-shrink: 0;
+    position: relative;
 }
 .category-btn:after {
     content: '▼';
@@ -96,266 +105,491 @@ header p {
     top: 50%;
     transform: translateY(-50%);
     font-size: 0.8em;
+    color: #fff; /* 确保下拉箭头颜色 */
 }
 
-/* 调整下拉内容的宽度，使其与按钮对齐 */
+/* Dropdown Content */
 .dropdown-content {
     display: none;
     position: absolute;
     background-color: #fff;
-    /* 使用CSS变量确保宽度匹配按钮，但先不强制设定，让它自适应 */
-    /* width: var(--category-btn-width, 100%); */
-    width: 100%; /* 默认100%，如果需要精确匹配按钮宽度，可能需要JS */
+    width: 100%;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 10;
     border: 1px solid #ddd;
+    border-radius: 8px;
     max-height: 400px;
     overflow-y: auto;
-    padding: 5px 0; /* 调整整体内边距，给上下留一点空间 */
+    padding: 5px 0;
+    top: 100%; /* Position below the button */
+    left: 0;
 }
 
-/* 类别标题 (例如 "菜品总览", "星级难度", "小贴士") */
 .dropdown-content .category-header {
     font-weight: bold;
-    color: #333; /* 标题颜色改为更深色，增加对比度 */
-    background-color: #e9e9e9; /* 标题背景色更柔和 */
-    padding: 10px 16px; /* 调整内边距 */
-    border-bottom: 1px solid #ddd; /* 增加底部边框 */
-    border-top: 1px solid #ddd; /* 增加顶部边框 */
-    margin-top: 5px; /* 标题上方增加一些间距 */
-    margin-bottom: 5px; /* 标题下方增加一些间距 */
-    text-transform: uppercase; /* 标题文字大写，增加分类感 */
-    font-size: 0.9em; /* 字体稍微小一点，更精致 */
-    letter-spacing: 0.5px; /* 增加字母间距 */
-    pointer-events: none; /* 确保标题不可点击 */
+    color: #333;
+    background-color: #f2f2f2;
+    padding: 10px 16px;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+    pointer-events: none;
     cursor: default;
 }
 
-/* 移除第一个 category-header 的顶部边框和多余的 margin-top */
 .dropdown-content .category-header:first-of-type {
     margin-top: 0;
     border-top: none;
 }
 
-/* 所有子项 (菜谱分类和文档项) 的基础样式 */
 .dropdown-content a.category-item,
 .dropdown-content a.subcategory-item {
-    padding: 8px 16px; /* 调整垂直内边距，让列表项看起来更舒适 */
-    padding-left: 25px; /* 基础缩进 */
-    font-size: 0.9em; /* 字体稍微小一点 */
-    color: #555; /* 默认文字颜色 */
+    padding: 8px 16px;
+    padding-left: 25px;
+    font-size: 0.95em;
+    color: #555;
     transition: background-color 0.2s ease, color 0.2s ease;
-    text-decoration: none; /* 确保所有 a 标签默认没有下划线 */
-    display: block; /* 确保a标签占据整行，方便点击 */
+    text-decoration: none;
+    display: block;
 }
 
-/* 鼠标悬停时的样式 */
 .dropdown-content a.category-item:hover,
 .dropdown-content a.subcategory-item:hover {
-    background-color: #e6f7ff; /* 浅蓝色背景，更柔和 */
-    color: #007bff; /* 文字颜色变为蓝色 */
+    background-color: #fde8d4; /* 与新主题色协调的浅色悬停 */
+    color: #d2691e;
 }
 
-/* 文档项的专属样式 */
 .dropdown-content a.document-item {
-    font-style: normal; /* 取消斜体 */
-    color: #6a6a6a; /* 保持较浅的颜色，但更自然 */
-    padding-left: 35px; /* 增加文档项的缩进，与菜谱分类区分 */
-    position: relative; /* 用于添加小图标 */
+    font-style: normal;
+    color: #6a6a6a;
+    padding-left: 35px;
+    position: relative;
 }
 
-/* 可选：为文档项添加一个小图标，增加视觉区分度 */
 .dropdown-content a.document-item::before {
-    content: '📄'; /* 文件图标 */
+    content: '📄';
     font-size: 0.8em;
     position: absolute;
-    left: 15px; /* 定位图标 */
+    left: 15px;
     top: 50%;
     transform: translateY(-50%);
     opacity: 0.7;
 }
 
-/* 如果你想让文档项的hover效果更明显，可以： */
 .dropdown-content a.document-item:hover {
-    background-color: #f0f8ff; /* 浅浅的蓝，与菜谱分类的 hover 区分 */
-    color: #4CAF50; /* 变成绿色，呼应主题色 */
+    background-color: #fef0e0;
+    color: #d2691e;
+}
+
+/* Search Input Styling - 美化后 */
+.search-container {
+    flex-grow: 1;
+    min-width: 180px;
+}
+
+#search-input {
+    width: 100%;
+    padding: 12px 18px;
+    border: 1px solid rgba(204, 204, 204, 0.7); /* 更柔和的边框 */
+    border-radius: 12px; /* 与按钮一致的圆角 */
+    font-size: 1.05em;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* 初始阴影 */
+}
+
+#search-input:focus {
+    border-color: #d2691e;
+    box-shadow: 0 0 8px rgba(210, 105, 30, 0.3); /* 更柔和的 focus 阴影 */
+    outline: none;
+}
+
+#search-input::placeholder {
+    color: #999; /* 更柔和的 placeholder 颜色 */
 }
 
 
-#recipes-container {
-    background-color: #fff;
+/* 新增：随机推荐大卡片容器 - 美化后 */
+.random-card-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+    background-color: rgba(255, 255, 255, 0.8); /* 略微透明的白色 */
+    border-radius: 15px; /* 更大的圆角 */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06); /* 更柔和的阴影 */
+    border: 1px solid rgba(238, 238, 238, 0.7); /* 更淡的边框 */
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    min-height: 200px;
 }
+
+/* 新增：随机推荐大按钮 */
+#random-btn-large {
+    width: 100%; /* 占据容器大部分宽度 */
+    max-width: 600px; /* 最大宽度限制 */
+    height: 120px; /* 较大的高度 */
+    background-color: #ff7f50; /* 更有活力的珊瑚色 */
+    color: white;
+    font-size: 2.5em; /* 巨大的字体 */
+    font-weight: bold;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    overflow: hidden; /* 隐藏溢出内容，为动画做准备 */
+    position: relative;
+    box-shadow: 0 6px 15px rgba(255,127,80,0.4);
+    transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease;
+    display: flex; /* Flexbox for centering content */
+    align-items: center;
+    justify-content: center;
+}
+
+#random-btn-large:hover {
+    background-color: #ff6347; /* 悬停深色 */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255,127,80,0.6);
+}
+
+#random-btn-large:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(255,127,80,0.4);
+}
+
+/* 随机推荐文字和动画效果 */
+#random-card-text {
+    position: absolute;
+    transition: opacity 0.3s ease;
+}
+#random-btn-large.spinning #random-card-text {
+    opacity: 0; /* 旋转时隐藏主文字 */
+}
+
+.spinner-text {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-size: 1em; /* 相对于父级字体大小 */
+}
+.spinner-text.visible {
+    opacity: 1;
+}
+
+/* 动画效果，模拟老虎机滚动 */
+@keyframes spin-roll {
+    0% { transform: translateY(0); opacity: 1; }
+    20% { transform: translateY(-50%); opacity: 0; }
+    21% { transform: translateY(50%); opacity: 0; }
+    40% { transform: translateY(0); opacity: 1; }
+    60% { transform: translateY(-50%); opacity: 0; }
+    61% { transform: translateY(50%); opacity: 0; }
+    80% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+
+/* 新增：随机菜谱详情模态弹窗 */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* 半透明黑色背景 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* 确保在最上层 */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh; /* 限制高度，可滚动 */
+    overflow-y: auto; /* 内容溢出时可滚动 */
+    position: relative;
+    transform: translateY(20px); /* 初始位置略下 */
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.modal-overlay.visible .modal-content {
+    transform: translateY(0); /* 进入时上移 */
+    opacity: 1;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: #aaa;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+    color: #333;
+    text-decoration: none;
+}
+
+#modal-recipe-name {
+    color: #d2691e;
+    font-size: 2.2em;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 2px solid #f0e6d6;
+    padding-bottom: 10px;
+}
+
+#modal-recipe-content h2,
+#modal-recipe-content h3,
+#modal-recipe-content h4 {
+    color: #a0522d; /* modal内部标题颜色 */
+    margin-top: 25px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #f5eadd;
+    padding-bottom: 5px;
+}
+
+#modal-recipe-content ul,
+#modal-recipe-content ol {
+    margin-left: 20px;
+    padding-left: 0;
+}
+
+#modal-recipe-content li {
+    margin-bottom: 8px;
+}
+
+#modal-recipe-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+#modal-recipe-content a {
+    color: #d2691e;
+    text-decoration: none;
+}
+#modal-recipe-content a:hover {
+    text-decoration: underline;
+}
+
+
+/* Recipe List Container - Two Columns */
+#recipes-container {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    min-height: 300px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Force two columns */
+    gap: 25px; /* Space between recipe cards */
+    border: 1px solid #eee;
+}
+
+/* Loading/Error Messages */
 .loading, .error {
     text-align: center;
     padding: 50px;
-    font-size: 1.2em;
+    font-size: 1.3em;
     color: #666;
+    grid-column: 1 / -1; /* Span all columns */
 }
 .error {
-    color: #d9534f; /* Bootstrap's danger color */
+    color: #c94c4c; /* More robust error color */
 }
 
+/* Individual Recipe Card */
 .recipe {
-    border-bottom: 1px solid #eee;
-    padding: 15px 0;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #fdfdfd;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer; /* Indicate it's clickable */
+    position: relative; /* For the chevron icon */
 }
-.recipe:last-child {
-    border-bottom: none;
+.recipe:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
 }
+
 .recipe-title {
     color: #333;
-    cursor: pointer;
     margin-top: 0;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    font-size: 1.4em;
+    font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.recipe-title .toggle-icon {
-    transition: transform 0.3s ease;
-    font-size: 0.8em;
-}
-.recipe-title .toggle-icon.expanded {
-    transform: rotate(180deg);
-}
+
 .recipe-tags {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 .tag {
     display: inline-block;
-    padding: 5px 10px;
+    padding: 6px 12px;
     margin-right: 8px;
-    border-radius: 4px;
-    font-size: 0.85em;
+    border-radius: 20px; /* Pill-shaped tags */
+    font-size: 0.8em;
     font-weight: bold;
     color: white;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
 }
 .category-tag {
-    background-color: #007bff; /* Bootstrap primary blue */
+    background-color: #a0522d; /* 更深沉的棕橙色 */
 }
 .difficulty-tag {
-    background-color: #28a745; /* Bootstrap success green */
+    background-color: #7a4324; /* 更深的棕色 */
 }
-.recipe-details {
-    display: none;
-    padding-top: 10px;
+
+/* Recipe detail content inside the card */
+.recipe-content-detail {
+    display: none; /* Hidden by default */
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #f0e6d6;
     line-height: 1.8;
 }
-.recipe-details.visible {
-    display: block;
-}
-.recipe-details h2, .recipe-details h3, .recipe-details h4 {
-    color: #4CAF50;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    border-bottom: 1px solid #eee;
+
+.recipe-content-detail h2,
+.recipe-content-detail h3,
+.recipe-content-detail h4 {
+    color: #d2691e; /* Harmonize with main theme */
+    margin-top: 25px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #f0e6d6;
     padding-bottom: 5px;
 }
-.recipe-details ul, .recipe-details ol {
+
+.recipe-content-detail ul,
+.recipe-content-detail ol {
     margin-left: 20px;
     padding-left: 0;
 }
-.recipe-details li {
-    margin-bottom: 5px;
+
+.recipe-content-detail li {
+    margin-bottom: 8px;
 }
-.recipe-details img {
+
+.recipe-content-detail img {
     max-width: 100%;
     height: auto;
     display: block;
-    margin: 15px auto;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
-.recipe-details a {
-    color: #007bff;
+
+.recipe-content-detail a {
+    color: #d2691e;
     text-decoration: none;
 }
-.recipe-details a:hover {
+.recipe-content-detail a:hover {
     text-decoration: underline;
 }
+
+/* Expand/Collapse Chevron Icon */
+.recipe-expand-icon {
+    font-size: 1.2em;
+    color: #d2691e;
+    transition: transform 0.3s ease;
+}
+.recipe.expanded .recipe-expand-icon {
+    transform: rotate(180deg);
+}
+
+
+/* Footer */
 footer {
     text-align: center;
     margin-top: 30px;
-    padding: 15px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     color: #666;
+    border: 1px solid #eee;
 }
 footer a {
-    color: #4CAF50;
+    color: #d2691e;
     text-decoration: none;
+    font-weight: bold;
 }
 footer a:hover {
     text-decoration: underline;
 }
 
-/* 随机推荐的菜谱样式 */
-.random-recipe {
-    animation: fadeIn 0.5s ease-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* 新增：文档内容样式 */
+/* Document Content (for non-recipe files) */
 .document-content {
     padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
+    background-color: #fefdfb;
+    border-radius: 12px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.08);
     margin-top: 20px;
+    grid-column: 1 / -1;
+    border: 1px solid #eee;
 }
 
-.document-content h2 {
-    color: #4CAF50;
-    margin-top: 0;
-    margin-bottom: 15px;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
-}
-
-.document-content h3 {
-    color: #666;
+.document-content h2, .document-content h3, .document-content h4 {
+    color: #d2691e; /* 与主题色协调 */
     margin-top: 20px;
     margin-bottom: 10px;
+    border-bottom: 1px solid #f0e6d6;
+    padding-bottom: 5px;
 }
-
 .document-content ul, .document-content ol {
     padding-left: 25px;
 }
-
 .document-content table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 15px;
     margin-bottom: 15px;
 }
-
 .document-content th, .document-content td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
 }
-
 .document-content th {
     background-color: #f2f2f2;
 }
-
-/* 如果文档中有代码块 */
 .document-content pre {
     background-color: #eee;
     padding: 10px;
     border-radius: 5px;
     overflow-x: auto;
 }
-
 .document-content code {
     font-family: 'Courier New', Courier, monospace;
     background-color: #e8e8e8;
@@ -364,36 +598,56 @@ footer a:hover {
 }
 
 
-/* 响应式设计调整 (确保小屏幕下布局仍然合理) */
+/* Responsive Design */
 @media (max-width: 768px) {
-    /* 顶部标题调整 */
+    body {
+        padding: 10px;
+    }
     header h1 {
-        font-size: 2em; /* 小屏幕下字体稍微缩小 */
+        font-size: 2em;
     }
-
     .controls {
-        flex-direction: column; /* 在小屏幕下，控件垂直堆叠 */
-        align-items: stretch; /* 让控件占据整个宽度 */
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
     }
-    .dropdown-container {
-        flex-direction: column; /* 小屏幕下，标签和按钮垂直堆叠 */
+    .dropdown-container, .search-container {
+        flex-direction: column;
         align-items: stretch;
         width: 100%;
-        gap: 5px; /* 缩小间距 */
+        gap: 5px;
     }
     .dropdown-container label {
-        text-align: center; /* 标签居中 */
+        text-align: center;
         margin-bottom: 5px;
     }
-    .category-btn, #random-btn, #show-all-btn {
-        width: 100%; /* 按钮占据整个宽度 */
+    .category-btn, #show-all-btn, #search-input {
+        width: 100%;
         max-width: none;
     }
     .dropdown-content {
-        position: static; /* 在小屏幕上让下拉内容变为静态流，方便滚动 */
-        width: 100%; /* 占据整个宽度 */
+        position: static;
+        width: 100%;
         box-shadow: none;
         border: none;
     }
-    /* ... 其他下拉内容的响应式样式保持不变 ... */
+    #recipes-container {
+        grid-template-columns: 1fr; /* Single column on small screens */
+        padding: 15px;
+        gap: 15px;
+    }
+    .recipe {
+        padding: 15px;
+    }
+    #random-btn-large {
+        font-size: 1.8em;
+        height: 100px;
+    }
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+    }
+    #modal-recipe-name {
+        font-size: 1.8em;
+    }
 }
